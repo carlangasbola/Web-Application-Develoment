@@ -1,0 +1,24 @@
+--SCRIPT para el Login Servlet
+
+CREATE DATABASE DB4;
+
+use DB4;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+--tablas
+
+CREATE TABLE Users(idUser INT NOT NULL AUTO_INCREMENT,id1 VARCHAR(10) NOT NULL, PRIMARY KEY(idUser));
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+GRANT ALL ON DB2.* TO admin@localhost IDENTIFIED BY '1234';
+
+--Insertando datos de ejemplo
+
+INSERT INTO Users(id1) VALUES('Abraham1');
+INSERT INTO Users(id1) VALUES('Abraham2');
+INSERT INTO Users(id1) VALUES('Abraham3');
+
+
+
