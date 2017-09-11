@@ -1,9 +1,10 @@
 ## Web Application Develoment
 
  En este apartado encontrarás todos los proyectos realizados en la materia
- de web application develoment ESCOM
+ de web application develoment ESCOM.
+ 
 
-## Authors
+## Autor
 
  **Bolaños Hernández Carlos Alberto**
 
