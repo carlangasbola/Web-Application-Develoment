@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>LogFilter</filter-name>
+        <filter-class>
+        paquete.FilterServlet
+        </filter-class>
+        <init-param>
+            <param-name>parametroprueba</param-name>
+            <param-value>ESTE PARAMETRO ES DE PRUEBA.</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <filter-name>LogFilter2</filter-name>
+        <filter-class>
+        paquete.FilterServlet2
+        </filter-class>
+    </filter>    
+    <filter-mapping>
+        <filter-name>LogFilter</filter-name>
+        <url-pattern>/ServletLogin</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LogFilter2</filter-name>
+        <url-pattern>/ServletLogin</url-pattern>
+    </filter-mapping>    
+    <servlet>
+        <servlet-name>ServletLogin</servlet-name>
+        <servlet-class>paquete.ServletLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginBean</servlet-name>
+        <servlet-class>paquete.LoginBean</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletLogin</servlet-name>
+        <url-pattern>/ServletLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginBean</servlet-name>
+        <url-pattern>/LoginBean</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
