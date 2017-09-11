@@ -27,29 +27,9 @@ public class ServletLogin extends HttpServlet {
         if(lb.validateUser(id,password))
         {
             
-            try {
-                if ( lb.tipoUsuaio(id) == 0 ){
-                    response.sendRedirect("Admin1");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(ServletLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            try {
-                if ( lb.tipoUsuaio(id) == 1){
-                    response.sendRedirect("Profesor1");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(ServletLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            try {
-                if (lb.tipoUsuaio(id) == 2){
-                    response.sendRedirect("Alumno1");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(ServletLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }
+           
+         response.sendRedirect("welcome");
+               
         }
         else	// username/password not validated
         {
