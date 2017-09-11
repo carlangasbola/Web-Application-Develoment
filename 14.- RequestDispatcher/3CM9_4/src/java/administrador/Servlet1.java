@@ -17,13 +17,11 @@ public class Servlet1 extends HttpServlet {
        
         response.setContentType("text/html;charset=UTF-8");
             
-            // getRealPath : Transforma Rutas Virtuales en rutas reales
-            // Esta es la manea incorrecta esta depreciada
-            String ruta1=request.getRealPath("/");
-            
-            // Esta es la manera correcta de utilizar el getRealPath
-            ServletContext application =this.getServletContext();
-            String ruta = application.getRealPath("/");
+            /* RequestDispatcher a diferencia del sendredirec se ejecuta del lado
+               del servidor y sendredirect del lado del cliente y matiene la 
+               persistencia de los objetos */
+            RequestDispatcher o=request.getRequestDispatcher("/Servlet2");
+            o.forward(request, response);
             
             PrintWriter out = response.getWriter();
             out.println("<!DOCTYPE html>");
@@ -32,8 +30,6 @@ public class Servlet1 extends HttpServlet {
             out.println("<title>Servlet Servlet1</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Ruta1: " + ruta1 + "</h1>");
-            out.println("<h1>Ruta1: " + ruta + "</h1>");
             out.println("</body>");
             out.println("</html>");
         
