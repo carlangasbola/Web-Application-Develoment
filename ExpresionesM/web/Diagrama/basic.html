@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expression Exchange</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/drag.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.20/fabric.min.js"></script>
+
+ <script src="js/dragg.js"></script>
+
+</head>
+<body>
+
+
+	<nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="https://cdn3.iconfinder.com/data/icons/black-easy/512/538309-game_512x512.png" width="30" height="30" class="d-inline-block align-top" alt="nada">
+                    Proyecto Final 3CM9 
+                </a>
+                <a href="logout">
+                    <img src="https://cdn4.iconfinder.com/data/icons/basic-ui-elements/700/012_power-512.png" width="35" height="35" class="d-inline-block align-top" alt="nada">
+                    <button type="button" class="btn btn-info" > 
+                        Cerrar Sesión 
+                    </button>
+                </a>
+            </div>
+        </nav>
+
+
+ <section id="contenedor">
+  <div id="cuadro1" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return drop(event)">
+     <div class="box drag1" id="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ><p class="valor">2</p></div>
+     <div class="box drag2" id="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ><p class="valor">5</p></div>
+     <div class="box drag3" id="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ><p class="valor">10</p></div>
+  </div>
+
+  <div id="cuadro2" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return drop(event)">
+  </div>
+  <div id="cuadro3" style="position: absolute;margin-top: -10px;">
+  	<h3> Total: <p id="total"></p> </h3>
+  </div>
+ </section>
+
+ <form method="post">
+        <fieldset>
+                <legend>Cambiar Valores</legend>
+                <input id="check-value" checked="true" onchange="toggleCheckbox(this)" type="checkbox">Valores <br/>
+        </fieldset>
+</form>
+
+<button onclick="salvarDiagrama()" >Guardar ejercicio</button>
+
+<section id="contenedor1">
+    
+</section>
+
+<script>
+    function salvarDiagrama(){
+        
+        //  This gives you an HTMLElement object
+        var element = document.getElementById('contenedor');
+        //  This gives you a string representing that element and its content
+        var html = element.outerHTML;       
+        //  This gives you a JSON object that you can send with jQuery.ajax's `data`
+        // option, you can rename the property to whatever you want.
+        //var data = { html: html }; 
+        alert(html);
+
+        var sendHtml = "miaction.action?info=" + html;
+        location.href = encodeURI(sendHtml);
+        
+        //  This gives you a string in JSON syntax of the object above that you can 
+        // send with XMLHttpRequest.
+        //var json = JSON.stringify(data);
+    }
+    
+</script>
+
+</body>
+</html>

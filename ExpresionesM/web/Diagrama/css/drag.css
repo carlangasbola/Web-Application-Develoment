@@ -1,0 +1,62 @@
+<style>
+body{
+  background: #303030;
+}
+h1 {
+  color: #CA7218;
+}
+
+#cuadro1{
+    float: left;
+    width: 250px;
+    height: 400px;
+    padding: 30px;
+    margin: 100px;
+}
+#cuadro2{
+    float: left;
+    width: 500px;
+    height: 400px;
+    padding: 10px;
+    margin: 100px;
+}
+#cuadro3{
+    float: right;
+    width: 120px;
+    height: 100px;
+    padding: 10px;
+    margin: 100px;
+}
+#cuadro1{
+    background: #B8D1F5;
+}
+
+#cuadro2 {
+    background: #F7E7F8;
+}
+#cuadro3{
+    background: #ECE7F8;
+}
+
+.box {
+    float: left;
+    width: 95px;
+    height: 95px;
+    padding: 0 10px 15px;
+    margin: 5px;
+}
+
+.drag1 {
+    background: #D99DF5;
+    border: 2px solid #E6F8F9;
+}
+
+.drag2 {
+    background: #EF7DC4;
+    border: 2px solid #E6F8F9;
+}
+
+.drag3 {
+    background: #EFD77D;
+    border: 2px solid #E6F8F9;
+</style>

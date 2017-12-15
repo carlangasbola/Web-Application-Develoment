@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 6/12/2017 09:09:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Grupo" table="grupo" catalog="BaseDeDatosWAD" optimistic-lock="version">
+        <id name="nombregrupo" type="string">
+            <column name="nombregrupo" length="30" />
+            <generator class="assigned" />
+        </id>
+        <set name="diagramas" table="relacionDiagramas" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="ref_nombreGrupo" length="30" not-null="true" />
+            </key>
+            <many-to-many entity-name="entity.Diagrama">
+                <column name="ref_idDiagrama" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="usuarioses" table="relacionGrupos" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="ref_nombreGrupo" length="30" not-null="true" />
+            </key>
+            <many-to-many entity-name="entity.Usuarios">
+                <column name="ref_idUser" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

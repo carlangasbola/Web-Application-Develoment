@@ -1,0 +1,108 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <include file="example.xml"/>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        
+        <!-- IDENTIFICACIÓN DE USUARIOS  -->
+        <action name="Ingresar" method="execute" class="ActionIngreso.Ingresar">
+            <result name="administrador" >/Administrador/PaginaPrincipal.jsp</result>
+            <result name="profesor" >/Profesor/Inicio.jsp</result>
+            <result name="alumno" >/Alumno/Inicio.jsp</result>
+            <result name="fallo" >/Administrador/inicio.jsp</result>
+        </action>
+        
+        <!-- LOGOUT DEL SISTEMA -->
+        <action name="logout" class="ActionIngreso.Ingresar" method="logout">
+            <result name="LOGOUT">/Administrador/inicio.jsp</result>
+	</action>
+        
+        <!-- Obtención de usuarios -->
+        <action name="obtenerUsuarios" class="consultas.Consulta" method="getUsuarios">
+            <result name="exito">/Administrador/BitacoraUsuarios.jsp</result>
+	</action>
+        
+        <!-- Obtención de grupos -->
+        <action name="obtenerGrupos" class="consultas.Consulta" method="getGrupos">
+            <result name="exito">/Administrador/BitacoraGrupo.jsp</result>
+	</action>
+        
+        <!-- Obtención de un solo Usuario -->
+        <action name="obtenerUsuario" class="consultas.Consulta" method="getUsuario" >
+            <result name="exito">/Administrador/ModificarUsuario.jsp</result>
+	</action>
+        
+        <!-- ELIMINAR  un Usuario  ¡¡ -->
+        <action name="borrar_usuario" class="consultas.Bajas" method="bajaUsuario">
+            <result name="exito">/Mensajes/Exito.jsp</result>
+	</action>
+        
+        <!-- ELIMINAR  un Grupo  ¡¡ -->
+        <action name="borrar_grupo" class="consultas.Bajas" method="bajaGrupo">
+            <result name="exito">/Mensajes/Exito.jsp</result>
+	</action>
+        
+        <!-- ELIMINAR  una Asignacion  ¡¡ -->
+        <action name="eliminaAsignacion" class="consultas.Bajas" method="bajaAsignacion">
+            <result name="exito">/Mensajes/Exito.jsp</result>
+	</action>
+        
+        <!-- INSERTAR  un Usuario  ¡¡ -->
+        <action name="insertar_usuario" class="consultas.Insertar" method="insertarUsuario">
+            <result name="exito">/Mensajes/Exito.jsp</result>
+	</action>
+        
+        <!-- INSERTAR  un Grupo  ¡¡ -->
+        <action name="insertar_grupo" class="consultas.Insertar" method="insertarGrupo">
+            <result name="exito">/Mensajes/Exito.jsp</result>
+	</action>
+        
+        <!-- MODIFICAR  un Usuario  ¡¡ -->
+        <action name="modificar_usuario" class="consultas.Actualizacion" method="updateAlumno">
+            <result name="exito">/Mensajes/Exito.jsp</result>
+	</action>
+        
+        <!-- OBTENER  asignaciones  ¡¡ -->
+        <action name="obtenerAsignaciones" class="consultas.Consulta" method="getUsuariosAndGrupos">
+            <result name="exito">/Administrador/BitacoraAsignaciones.jsp</result>
+	</action>
+        
+        <!-- RELACIONAR USUARIO < - - > GRUPO  ¡¡ -->
+        <action name="asignar" class="consultas.Insertar" method="relacionarUsuario">
+            <result name="exito">/Mensajes/Exito.jsp</result>
+	</action>
+        
+        <!-- Inserta el diagrama -->
+        <action name="miaction" class="consultas.Insertar" method="Insertapagina">
+            <result name="exito">/Mensajes/ExitoProfesor.jsp</result>
+	</action>
+        
+        <!-- Ver diagrama diagrama -->
+        <action name="verDiagrama" class="consultas.Consulta" method="getJsonDiagrama">
+            <!--  Redireciona a los diagramas disponibles -->
+            <result name="exito">/Alumno/verDiagrama.jsp</result>
+	</action>
+        
+        <!-- Ver diagrama diagrama PROFESOR -->
+        <action name="verDiagramas" class="consultas.Consulta" method="getDiagramas">
+            <!--  Redireciona a los diagramas disponibles -->
+            <result name="exito">/Alumno/Diagramas.jsp</result>
+	</action>
+        
+        <!-- OBTENER diagramas and grupos -->
+        <action name="getDiagramaAndGrupo" class="consultas.Consulta" method="getDiagramaAndGrupo">
+            <!--  Redireciona a los diagramas disponibles -->
+            <result name="exito">/Profesor/AsignarDiagrama.jsp</result>
+	</action>
+        
+        <!-- INSERTAR diagramas and grupos -->
+        <action name="insertarAsignacionDiagrama" class="consultas.Insertar" method="insertarAsignacionDiagrama">
+            <!--  Redireciona a los diagramas disponibles -->
+            <result name="exito">/Mensajes/ExitoProfesor.jsp</result>
+	</action>
+        
+    </package>
+</struts>
